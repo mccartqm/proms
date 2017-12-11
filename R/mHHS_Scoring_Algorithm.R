@@ -14,8 +14,7 @@
 #' @return This function returns the original data frame provided as input with
 #'    an additional variable storing the modified HHS score.
 #'
-#' @importFrom("dplyr", "left_join")
-#' @importFrom("magrittr", "%>%")
+#' @importFrom dplyr left_join
 #'
 #' @examples df <- mhhs(df, "hhs1r", "hhs2r", "hhs3r", "hhs4r", "hhs5r", "hhs6r", "hhs7r", "hhs8r")
 #'
