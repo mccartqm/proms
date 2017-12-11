@@ -17,7 +17,7 @@
 #' @importFrom("dplyr", "left_join")
 #' @importFrom("magrittr", "%>%")
 #'
-#' @example df <- mhhs(df, "hhs1r", "hhs2r", "hhs3r", "hhs4r", "hhs5r", "hhs6r", "hhs7r", "hhs8r")
+#' @examples df <- mhhs(df, "hhs1r", "hhs2r", "hhs3r", "hhs4r", "hhs5r", "hhs6r", "hhs7r", "hhs8r")
 #'
 #' @export
 
