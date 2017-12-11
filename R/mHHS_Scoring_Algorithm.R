@@ -15,6 +15,7 @@
 #'    an additional variable storing the modified HHS score.
 #'
 #' @importFrom dplyr left_join
+#' @import magrittr
 #'
 #' @examples df <- mhhs(df, "hhs1r", "hhs2r", "hhs3r", "hhs4r", "hhs5r", "hhs6r", "hhs7r", "hhs8r")
 #'
