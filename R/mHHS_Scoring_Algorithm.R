@@ -29,14 +29,14 @@ mhhs <- function(data, pain, limp, support, distance, stairs, shoes, sitting, tr
     data[[i]][!(is.na(data[[i]]) | data[[i]] %in% c(1,2,3,4,5,6,7,8))] <- NA
   }
 
-  itemScores <- left_join(data, pain_info[, c("pain", "pain_score")], by = setNames("pain", pain)) %>%
-    left_join(limp_info[, c("limp", "limp_score")], by = setNames("limp", limp)) %>%
-    left_join(support_info[, c("support", "support_score")], by = setNames("support", support)) %>%
-    left_join(distance_info[, c("distance", "distance_score")], by = setNames("distance", distance)) %>%
-    left_join(stairs_info[, c("stairs", "stairs_score")], by = setNames("stairs", stairs)) %>%
-    left_join(shoes_info[, c("shoes", "shoes_score")], by = setNames("shoes", shoes)) %>%
-    left_join(sitting_info[, c("sitting", "sitting_score")], by = setNames("sitting", sitting)) %>%
-    left_join(transport_info[, c("transport", "transport_score")], by = setNames("transport", transport))
+  itemScores <- dplyr::left_join(data, pain_info[, c("pain", "pain_score")], by = setNames("pain", pain)) %>%
+    dplyr::left_join(limp_info[, c("limp", "limp_score")], by = setNames("limp", limp)) %>%
+    dplyr::left_join(support_info[, c("support", "support_score")], by = setNames("support", support)) %>%
+    dplyr::left_join(distance_info[, c("distance", "distance_score")], by = setNames("distance", distance)) %>%
+    dplyr::left_join(stairs_info[, c("stairs", "stairs_score")], by = setNames("stairs", stairs)) %>%
+    dplyr::left_join(shoes_info[, c("shoes", "shoes_score")], by = setNames("shoes", shoes)) %>%
+    dplyr::left_join(sitting_info[, c("sitting", "sitting_score")], by = setNames("sitting", sitting)) %>%
+    dplyr::left_join(transport_info[, c("transport", "transport_score")], by = setNames("transport", transport))
 
   data$mHHS <- rowSums(itemScores[, c("pain_score", "limp_score",
                                       "support_score", "distance_score",
