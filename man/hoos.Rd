@@ -4,20 +4,25 @@
 \alias{hoos}
 \title{Calculates the Hip Disability and Osteoarthritis Outcomes Survey subscale scores (HOOS).}
 \usage{
-hoos(data, symptomVars, painVars, adlVars, sportVars, qolVars)
+hoos(data, symptomvars, painvars, adlvars, sportvars, qolvars)
 }
 \arguments{
-\item{data}{A data frame.}
+\item{data}{A data frame}
 
-\item{symptomVars}{A character vector of length 5 specifying the name of the pain variable}
+\item{symptomvars}{A character vector of length 5 specifying the names of the
+symptom variables (which include symptoms and stiffness)}
 
-\item{painVars}{A character vector of length 10 specifying the name of the limp variable}
+\item{painvars}{A character vector of length 10 specifying the names of the
+pain variables}
 
-\item{adlVars}{A character vector of length 17 specifying the name of the support variable}
+\item{adlvars}{A character vector of length 17 specifying the names of the
+function in daily living variables}
 
-\item{sportVars}{A character vector of length 4 specifying the name of the distance variable}
+\item{sportvars}{A character vector of length 4 specifying the names of the
+function in sport and recreation variables}
 
-\item{qolVars}{A character vector of length 4 specifying the name of the stairs variable}
+\item{qolvars}{A character vector of length 4 specifying the names of the
+hip-related quality of life variables}
 }
 \value{
 This function returns the original data frame provided as input with
@@ -25,10 +30,29 @@ This function returns the original data frame provided as input with
 }
 \description{
 The \code{hoos} function first replaces any undefined values with NA before
-computing the subscale scores. At least 50% of the items in each subscale
-require a response in order for the subscale score to be calculated.
+computing the subscale scores. At least half of the items in each subscale
+require a response in order for that subscale score to be calculated.
 }
 \examples{
+fai <- read.csv("FAI test data.csv", stringsAsFactors = F)
+
+hoosvars <- names(fai)[c(31:109)]
+symptoms <- names(fai)[seq(31, 39, 2)]
+pain <- names(fai)[c(41, 59, 2)]
+adl <- names(fai)[c(61, 93, 2)]
+sport <- names(fai)[c(95, 101, 2)]
+qol <- names(fai)[c(103, 109, 2)]
+
+library(dplyr)
+test <- cbind.data.frame(select(fai, -(hoossy1r:hoosq4l)),
+                         apply(fai[hoosvars],
+                               2,
+                               function(x) ifelse(x==1, 0,
+                                                  ifelse(x==2, 1,
+                                                         ifelse(x==3, 2,
+                                                                ifelse(x==4, 3,
+                                                                       ifelse(x==5, 4,
+                                                                              x)))))))
 df <- hoos(df, symptoms, pain, adl, sport, qol)
 
 }
