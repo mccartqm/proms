@@ -27,7 +27,8 @@
 #'                  q11i=sample(0:4, 50, replace = T), q12=rep(0, 50),
 #'                  q13=sample(0:10, 50, replace = T))
 #'
-#' vars <- names(df)[2:22]
+#' ## item 12 does not factor into the score
+#' vars <- names(df)[c(2:20, 22)]
 #'
 #' df <- pedi_ikdc(df, vars)
 #'
