@@ -1,6 +1,7 @@
 #' Calculates the modified version of the Harris Hip Score (mHHS).
 #'
-#' \code{mHHS} pulls item scores from an internal lookup table.
+#' \code{mHHS} pulls item scores from an internal lookup table. If any of the
+#' items are missing \code{mHHS} does not calculate a score.
 #'
 #' @param data A data frame.
 #' @param pain A character vector of length one specifying the name of the pain variable
@@ -43,6 +44,6 @@ mhhs <- function(data, pain, limp, support, distance, stairs, shoes, sitting, tr
   data$mHHS <- rowSums(itemScores[, c("pain_score", "limp_score",
                                       "support_score", "distance_score",
                                       "stairs_score", "shoes_score",
-                                      "sitting_score", "transport_score")], na.rm = T)
+                                      "sitting_score", "transport_score")])
   data
 }

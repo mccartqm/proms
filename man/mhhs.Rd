@@ -30,7 +30,8 @@ This function returns the original data frame provided as input with
    an additional variable storing the modified HHS score.
 }
 \description{
-\code{mHHS} pulls item scores from an internal lookup table.
+\code{mHHS} pulls item scores from an internal lookup table. If any of the
+items are missing \code{mHHS} does not calculate a score.
 }
 \examples{
 df <- mhhs(df, "hhs1r", "hhs2r", "hhs3r", "hhs4r", "hhs5r", "hhs6r", "hhs7r", "hhs8r")
