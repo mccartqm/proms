@@ -1,5 +1,6 @@
-
-#' Calculates the modified version of the Harris Hip Score (HHS).
+#' Calculates the modified version of the Harris Hip Score (mHHS).
+#'
+#' The \code{mhhs} function replaces undefined values with NA.
 #'
 #' @param data A data frame.
 #' @param pain A character vector of length one specifying the name of the pain variable

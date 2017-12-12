@@ -45,14 +45,8 @@ qol <- names(fai)[c(103, 109, 2)]
 
 library(dplyr)
 test <- cbind.data.frame(select(fai, -(hoossy1r:hoosq4l)),
-                         apply(fai[hoosvars],
-                               2,
-                               function(x) ifelse(x==1, 0,
-                                                  ifelse(x==2, 1,
-                                                         ifelse(x==3, 2,
-                                                                ifelse(x==4, 3,
-                                                                       ifelse(x==5, 4,
-                                                                              x)))))))
+                         apply(fai[hoosvars], 2, function(x) ifelse(x \%in\% c(1,2,3,4,5), x-1, x)))
+
 df <- hoos(df, symptoms, pain, adl, sport, qol)
 
 }
