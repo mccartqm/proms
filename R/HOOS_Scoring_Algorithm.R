@@ -1,8 +1,7 @@
 #' Calculates the Hip Disability and Osteoarthritis Outcomes Survey subscale scores (HOOS).
 #'
-#' The \code{hoos} function first replaces any undefined values with NA before
-#' computing the subscale scores. At least half of the items in each subscale
-#' require a response in order for that subscale score to be calculated.
+#' At least half of the items in each subscale require a response in order for
+#' that subscale score to be calculated.
 #'
 #' @param data A data frame
 #' @param symptomvars A character vector of length 5 specifying the names of the

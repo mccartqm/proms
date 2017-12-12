@@ -1,11 +1,10 @@
 #' Calculates the QuickDASH score
 #'
-#' Calculates the disability/symptom section of the QuickDASH, including the
-#' optional high performance sport/music or work modules when specified. The
-#' \code{quickdash} function first replaces any undefined values with NA before
-#' computing the subscores. The QuickDASH score will \strong{not} be calculated
-#' if more than 1 item is missing. An optional module score will \strong{not} be
-#' calculated if there are any missing items.
+#' Calculates the disability/symptom QuickDASH score, and the
+#' optional high performance sport/music or work module scores when specified.
+#' The QuickDASH score will \strong{not} be calculated if more than 1 item is
+#' missing. An optional module score will \strong{not} be calculated if any
+#' of the items are missing.
 #'
 #' @param data A data frame.
 #' @param symptomvars A character vector of length eleven specifying the names of
@@ -24,15 +23,13 @@
 #' storing the optional module scores are created upon request.
 #'
 #' @examples
-#' df <- data.frame(id = 1:200,
-#'   q1 = sample(1:5, 200, replace = T), q2 = sample(1:5, 200, replace = T),
-#'   q3 = sample(1:5, 200, replace = T), q4 = sample(1:5, 200, replace = T),
-#'   q5 = sample(1:5, 200, replace = T), q6 = sample(1:5, 200, replace = T),
-#'   q7 = sample(1:5, 200, replace = T), q8 = sample(1:5, 200, replace = T),
-#'   q9 = sample(1:5, 200, replace = T), q10 = sample(1:5, 200, replace = T),
-#'   q11 = sample(1:5, 200, replace = T))
+#' df <- data.frame(id = 1:200, replicate(15, sample(1:5, 200, replace = T)))
 #'
-#' df <- quickdash(df, names(df)[2:11])
+#' ## disability/symptom score only
+#' df <- quickdash(df, names(df)[2:12])
+#'
+#' ## optional work module score
+#' df <- quickdash(df, names(df)[2:12], include_work=T, workvars=names(df)[13:16])
 #'
 #' @export
 

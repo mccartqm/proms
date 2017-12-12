@@ -18,10 +18,9 @@ This function returns the original data frame provided as input with
 an additional variable storing the pedi-IKDC score.
 }
 \description{
-The \code{pedi_ikdc} function replaces any undefined values with NA before
-computing the score. The pedi-IKDC score will not be calculated if more than
-two items are missing. Per the pedi-IKDC scoring instructions, item 12 does not
-factor into the overall score.
+The pedi-IKDC score will not be calculated if more than two items are missing.
+Per the pedi-IKDC scoring instructions, item 12 does not factor into the
+overall score.
 }
 \examples{
 df <- data.frame(id=1:50,

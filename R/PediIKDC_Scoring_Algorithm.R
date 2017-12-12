@@ -1,10 +1,9 @@
 #' Calculates the pediatric International Knee Documentation Committee (pedi-IKDC)
 #' score
 #'
-#' The \code{pedi_ikdc} function replaces any undefined values with NA before
-#' computing the score. The pedi-IKDC score will not be calculated if more than
-#' two items are missing. Per the pedi-IKDC scoring instructions, item 12 does not
-#' factor into the overall score.
+#' The pedi-IKDC score will not be calculated if more than two items are missing.
+#' Per the pedi-IKDC scoring instructions, item 12 does not factor into the
+#' overall score.
 #'
 #' @param data A data frame.
 #' @param vars A character vector of length 20 specifying the names of

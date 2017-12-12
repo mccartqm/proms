@@ -29,9 +29,8 @@ This function returns the original data frame provided as input with
    five additional variables storing each subscale score.
 }
 \description{
-The \code{hoos} function first replaces any undefined values with NA before
-computing the subscale scores. At least half of the items in each subscale
-require a response in order for that subscale score to be calculated.
+At least half of the items in each subscale require a response in order for
+that subscale score to be calculated.
 }
 \examples{
 fai <- read.csv("FAI test data.csv", stringsAsFactors = F)

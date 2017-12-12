@@ -2,7 +2,7 @@
 % Please edit documentation in R/mHHS_Scoring_Algorithm.R
 \name{mhhs}
 \alias{mhhs}
-\title{Calculates the modified version of the Harris Hip Score (HHS).}
+\title{Calculates the modified version of the Harris Hip Score (mHHS).}
 \usage{
 mhhs(data, pain, limp, support, distance, stairs, shoes, sitting, transport)
 }
@@ -30,7 +30,7 @@ This function returns the original data frame provided as input with
    an additional variable storing the modified HHS score.
 }
 \description{
-Calculates the modified version of the Harris Hip Score (HHS).
+\code{mHHS} pulls item scores from an internal lookup table.
 }
 \examples{
 df <- mhhs(df, "hhs1r", "hhs2r", "hhs3r", "hhs4r", "hhs5r", "hhs6r", "hhs7r", "hhs8r")
