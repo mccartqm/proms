@@ -3,6 +3,7 @@
 export(eq5d)
 export(hoos)
 export(mhhs)
+export(pedi_ikdc)
 export(quickdash)
 import(magrittr)
 importFrom(dplyr,left_join)
