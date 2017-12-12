@@ -16,7 +16,7 @@ symptom variables (which include symptoms and stiffness)}
 pain variables}
 
 \item{adlvars}{A character vector of length 17 specifying the names of the
-function in daily living variables}
+function in activities of daily living variables}
 
 \item{sportvars}{A character vector of length 4 specifying the names of the
 function in sport and recreation variables}
@@ -45,7 +45,9 @@ qol <- names(fai)[c(103, 109, 2)]
 
 library(dplyr)
 test <- cbind.data.frame(select(fai, -(hoossy1r:hoosq4l)),
-                         apply(fai[hoosvars], 2, function(x) ifelse(x \%in\% c(1,2,3,4,5), x-1, x)))
+                         apply(fai[hoosvars],
+                               2,
+                               function(x) ifelse(x \%in\% c(1,2,3,4,5), x-1, x)))
 
 df <- hoos(df, symptoms, pain, adl, sport, qol)
 

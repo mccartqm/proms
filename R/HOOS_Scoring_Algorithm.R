@@ -10,7 +10,7 @@
 #' @param painvars A character vector of length 10 specifying the names of the
 #' pain variables
 #' @param adlvars A character vector of length 17 specifying the names of the
-#' function in daily living variables
+#' function in activities of daily living variables
 #' @param sportvars A character vector of length 4 specifying the names of the
 #' function in sport and recreation variables
 #' @param qolvars A character vector of length 4 specifying the names of the
@@ -33,12 +33,8 @@
 #' test <- cbind.data.frame(select(fai, -(hoossy1r:hoosq4l)),
 #'                          apply(fai[hoosvars],
 #'                                2,
-#'                                function(x) ifelse(x==1, 0,
-#'                                                   ifelse(x==2, 1,
-#'                                                          ifelse(x==3, 2,
-#'                                                                 ifelse(x==4, 3,
-#'                                                                        ifelse(x==5, 4,
-#'                                                                               x)))))))
+#'                                function(x) ifelse(x %in% c(1,2,3,4,5), x-1, x)))
+#'
 #' df <- hoos(df, symptoms, pain, adl, sport, qol)
 #'
 #' @export
