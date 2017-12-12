@@ -2,33 +2,50 @@
 % Please edit documentation in R/QuickDASH_Scoring_Algorithm.R
 \name{quickdash}
 \alias{quickdash}
-\title{Calculates the disability/symptom section and the optional high performance
-sport/music or work modules of the QuickDASH.}
+\title{Calculates the QuickDASH score}
 \usage{
-quickdash(data, varnames)
+quickdash(data, symptomvars, include_work = F, workvars = NULL,
+  include_sports = F, sportsvars = NULL)
 }
 \arguments{
 \item{data}{A data frame.}
 
-\item{varnames}{A character vector of length eleven specifying the names of
+\item{symptomvars}{A character vector of length eleven specifying the names of
 the eleven questions used to calculate the disability/symptom score.}
+
+\item{include_work}{Logical value specifying whether to calculate a score for
+the optional work module}
+
+\item{workvars}{An optional character vector of length four specifying the
+names of the four questions used to score the work module.}
+
+\item{include_sports}{Logical value specifying whether to calculate a score for
+the optional sports/performing arts module}
+
+\item{sportsvars}{An optional character vector of length four specifying the
+names of the four questions used to score the sports/performing arts module.}
 }
 \value{
 This function returns the original data frame provided as input with
-an additional variable storing the QuickDASH score.
+an additional variable storing the QuickDASH score. Additional variables
+storing the optional module scores are created upon request.
 }
 \description{
-Calculates the disability/symptom section and the optional high performance
-sport/music or work modules of the QuickDASH.
+Calculates the disability/symptom section of the QuickDASH, including the
+optional high performance sport/music or work modules when specified. The
+\code{quickdash} function first replaces any undefined values with NA before
+computing the subscores. The QuickDASH score will \strong{not} be calculated
+if more than 1 item is missing. An optional module score will \strong{not} be
+calculated if there are any missing items.
 }
 \examples{
 df <- data.frame(id = 1:200,
-q1 = sample(1:5, 200, replace = T), q2 = sample(1:5, 200, replace = T),
-q3 = sample(1:5, 200, replace = T), q4 = sample(1:5, 200, replace = T),
-q5 = sample(1:5, 200, replace = T), q6 = sample(1:5, 200, replace = T),
-q7 = sample(1:5, 200, replace = T), q8 = sample(1:5, 200, replace = T),
-q9 = sample(1:5, 200, replace = T), q10 = sample(1:5, 200, replace = T),
-q11 = sample(1:5, 200, replace = T))
+  q1 = sample(1:5, 200, replace = T), q2 = sample(1:5, 200, replace = T),
+  q3 = sample(1:5, 200, replace = T), q4 = sample(1:5, 200, replace = T),
+  q5 = sample(1:5, 200, replace = T), q6 = sample(1:5, 200, replace = T),
+  q7 = sample(1:5, 200, replace = T), q8 = sample(1:5, 200, replace = T),
+  q9 = sample(1:5, 200, replace = T), q10 = sample(1:5, 200, replace = T),
+  q11 = sample(1:5, 200, replace = T))
 
 df <- quickdash(df, names(df)[2:11])
 

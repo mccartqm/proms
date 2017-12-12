@@ -24,7 +24,9 @@ This function returns the original data frame provided as input with
    five additional variables storing each subscale score.
 }
 \description{
-Calculates the Hip Disability and Osteoarthritis Outcomes Survey subscale scores (HOOS).
+The \code{hoos} function first replaces any undefined values with NA before
+computing the subscale scores. At least 50% of the items in each subscale
+require a response in order for the subscale score to be calculated.
 }
 \examples{
 df <- hoos(df, symptoms, pain, adl, sport, qol)
